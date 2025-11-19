@@ -1,0 +1,78 @@
+:root{
+  --dourado: #d4a017;
+  --azul-escuro: #081522;
+  --azul-meio: #0d2435;
+  --branco: #ffffff;
+  --glass: rgba(10,16,25,0.45);
+  --glass-strong: rgba(10,16,25,0.65);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%; margin:0; font-family:Inter, Arial, sans-serif; color:var(--branco); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;}
+
+/* Parallax background handled on body */
+body{
+  background: url('../img/fundo-awtech.jpg') no-repeat center center fixed;
+  background-size: cover;
+  min-height:100vh;
+}
+
+/* Dark overlay for legibility */
+.background-overlay{
+  position:fixed; inset:0; background:linear-gradient(rgba(2,6,12,0.55), rgba(2,6,12,0.65)); pointer-events:none; z-index:0;
+}
+
+/* Header */
+header{
+  position:sticky; top:0; z-index:50;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:18px 32px; gap:20px;
+  background: linear-gradient(90deg, rgba(2,6,12,0.35), rgba(2,6,12,0.20));
+  border-bottom:2px solid rgba(212,160,23,0.12);
+  backdrop-filter: blur(6px);
+}
+.logo img{height:72px; display:block;}
+.nav a{ color:var(--white); text-decoration:none; margin-left:22px; font-weight:600; color:var(--white); font-size:16px; }
+.nav a:hover{ color:var(--dourado); transform:translateY(-2px); transition:0.25s;}
+
+/* Hero */
+.hero{ min-height:68vh; display:flex; align-items:center; justify-content:center; text-align:center; padding:80px 20px; position:relative; z-index:10;}
+.hero .inner{ max-width:1100px; padding:40px; background:linear-gradient(180deg, rgba(13,36,53,0.14), rgba(8,21,35,0.18)); border-radius:14px; border:1px solid rgba(212,160,23,0.08); box-shadow: 0 8px 30px rgba(0,0,0,0.6); }
+.title{ font-size:48px; letter-spacing:2px; margin:0 0 14px; background: linear-gradient(180deg, #fff, #cfd6db); -webkit-background-clip:text; color:transparent; text-shadow:0 6px 24px rgba(2,6,12,0.6); }
+.lead{ font-size:20px; color: #d6d8db; margin-bottom:20px;}
+
+/* CTA */
+.cta{ display:inline-flex; align-items:center; gap:12px; background:var(--dourado); color:#081522; padding:14px 22px; border-radius:10px; font-weight:700; text-decoration:none; box-shadow:0 8px 20px rgba(212,160,23,0.14); transition:transform .18s ease, box-shadow .18s ease;}
+.cta:hover{ transform:translateY(-4px); box-shadow:0 18px 40px rgba(212,160,23,0.24);}
+
+/* Services grid */
+.servicos{ padding:80px 28px; display:grid; gap:28px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); z-index:10; position:relative;}
+.card{ background: linear-gradient(180deg, rgba(13,36,53,0.18), rgba(8,21,35,0.12)); border-radius:12px; padding:24px; border:1px solid rgba(212,160,23,0.08); transition: transform .22s ease, box-shadow .22s ease; }
+.card:hover{ transform:translateY(-10px); box-shadow:0 20px 40px rgba(2,6,12,0.6); }
+.card h3{ color:var(--dourado); margin:0 0 8px; }
+.card p{ color:#d6d8db; margin:0; }
+
+/* About & contact sections */
+.section{ padding:80px 20px; text-align:center; background: linear-gradient(180deg, transparent, rgba(0,0,0,0.02)); border-top:1px solid rgba(255,255,255,0.02); }
+.section h2{ color:var(--dourado); font-size:30px; margin-bottom:18px; }
+
+/* Footer */
+footer{ padding:28px 20px; text-align:center; font-size:14px; color:#c6c6c6; background: linear-gradient(180deg, rgba(0,0,0,0.12), rgba(0,0,0,0.18)); border-top:1px solid rgba(212,160,23,0.06); }
+
+/* Simple entrance animations */
+.fade-in{ animation:fadeUp .9s cubic-bezier(.2,.9,.2,1) both; }
+@keyframes fadeUp{ from{opacity:0; transform:translateY(12px)} to{opacity:1; transform:translateY(0)} }
+
+/* Responsive */
+@media(max-width:900px){
+  .title{ font-size:34px; }
+  header{ padding:12px 16px; }
+  .logo img{ height:56px; }
+  .hero{ padding:60px 16px; min-height:56vh; }
+}
+@media(max-width:480px){
+  .title{ font-size:26px; }
+  .lead{ font-size:16px; }
+  .nav{ display:none; }
+  .logo img{ height:48px; }
+}
